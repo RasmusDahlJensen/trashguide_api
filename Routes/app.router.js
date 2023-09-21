@@ -96,6 +96,7 @@ AppRouter.get("/orders/:id([0-9]*)", (req, res) => {
 AppRouter.post("/orders", (req, res) => {
 	ordercontrol.create(req, res);
 });
+//Add new endpoint for the new remove controller
 AppRouter.delete("/orders/:id([0-9]*)", (req, res) => {
 	ordercontrol.remove(req, res);
 });

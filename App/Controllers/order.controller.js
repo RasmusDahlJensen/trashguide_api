@@ -87,17 +87,18 @@ class OrderController {
 		const { id } = req.params;
 
 		try {
-			// Attempt to find the order by ID and delete it
+			//Find ID and remove it
 			const deletedOrder = await Orders.destroy({
 				where: {
 					id: id,
 				},
 			});
-
+			//If delete is successful return a positive message
 			if (deletedOrder) {
 				return res.json({
 					message: `Order with ID ${id} deleted successfully.`,
 				});
+				//otherwise if we dont find the ID return an error
 			} else {
 				return res.status(404).json({
 					message: `Order with ID ${id} not found.`,
